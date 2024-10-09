@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+    <link rel="stylesheet" href="Css/index.css">
+    <link rel="stylesheet" href="Css/CARD PRODUCT.CSS">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2px;
+        }
+        .cart-items {
+            margin: 20px 0;
+        }
+        .cart-items li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-items li:last-child {
+            border-bottom: none;
+        }
+        .total {
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .empty-cart {
+            color: red;
+            font-weight: bold;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+
+
+
+
+
+
+    <h1>Cart Items</h1>
+    <ul id="cart-items" class="cart-items">
+        <!-- Items will be dynamically added here -->
+    </ul>
+    <div class="total">Total: <span id="cart-total">$0.00</span></div>
+    <button id="empty-cart" class="btn">Empty Cart</button>
+    <button class="btn" onclick="window.history.back()">Go Back</button>
+
+    <script>
+        function loadCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<li class="empty-cart">Your cart is empty.</li>';
+                cartTotal.textContent = '$0.00';
+                return;
+            }
+
+            cartItemsContainer.innerHTML = ''; // Clear current list
+
+            let total = 0;
+            cart.forEach(product => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${product.name} - $${product.price.toFixed(2)}`;
+                cartItemsContainer.appendChild(listItem);
+
+                total += product.price;
+            });
+
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        }
+
+        function emptyCart() {
+            localStorage.removeItem('cart');
+            loadCartItems();
+        }
+
+        document.getElementById('empty-cart').addEventListener('click', emptyCart);
+
+        document.addEventListener('DOMContentLoaded', loadCartItems);
+    </script>
+
+
+<div>
+    <footer class="footer" style="margin: 0%;">
+      <div class="footer-content">
+        <p>© 2024 STARKCAR. Todos los derechos reservados.</p>
+        <ul class="social-icons">
+          <li><a href="#"><img src="img/facebook.png" alt="Facebook"></a></li>
+          <li><a href="#"><img src="img/twitter.png" alt="Twitter"></a></li>
+          <li><a href="#"><img src="img/instagram.png" alt="Instagram"></a></li>
+          <li><a href="#"><img src="img/whatsapp.png" alt="What´sApp" style="margin-top: -5px; margin-left: -10px; height: 35px; width: 35px;"></a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

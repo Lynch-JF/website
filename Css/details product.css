@@ -1,0 +1,267 @@
+.column-name {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    margin-left: 73%;
+    margin-top: -38%;
+  
+}
+  
+  /* Remove extra left and right margins, due to padding */
+  .row-name {
+    margin: 0 -5px;
+
+
+}
+  
+  /* Clear floats after the columns */
+  .row-name:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column-name {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+      
+    }
+  }
+  
+  /* Style the counter cards */
+  .card-name {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: azure;
+    border-radius: 10px;
+  
+}
+
+/*details product*/
+
+.column-details {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    margin-top: -30.8%;
+    margin-left: 73%;
+  
+}
+  
+  .row-details {
+    margin: 0 -5px;
+
+
+}
+  
+  .row-details:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    .column-details {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+      
+    }
+  }
+  
+  .card-details {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: justify;
+    background-color: azure;
+    border-radius: 10px;
+    color: black;
+  
+}
+.btn_add {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: -9%;
+  }
+
+  
+  #add_product{
+
+        padding: 10px 20px;
+        font-size: 18px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #040404;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+      }
+      
+      #add_product:hover {background-color: #e40909}
+      
+      #add_product:active {
+        background-color: #040404;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+
+
+      .row-scrolling{
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        margin-left: 2%;
+        
+      }
+      
+      .scrolling {
+        flex: 0 0 auto;
+        border: solid 1px black;
+        margin: 10px;
+        width: 125px;
+        height: 150px;
+        text-align: center;
+
+      }
+      
+      .row-scrollingr::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .scrolling-buttons-container {
+        display: flex;
+        justify-content: space-between;
+        font-size: 25px;
+        margin-left: 25px;
+        margin-right: 25px;
+        cursor: pointer;
+      }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .imgr {
+    vertical-align:auto;
+    
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: absolute;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }

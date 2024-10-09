@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>LYNCH INDUSTRY</title>
+
+    
+     
+</head>
+<body style="background-image: url(SRT\ Hellcat\ Wallpaper.jpeg);">
+
+  <navbar>
+    <div class="navbar nav navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="v-flex">
+          <div class="navbar-body">
+            <div class="navbar-start">
+              <div class="hamburger-menu">
+                <div class="ic_menu">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </div>
+              </div>
+              <img class="logo" src="img logo/Sin título-2.png" style=" margin-left: -55%; width: 90px; height: 70px;">
+            </div>
+            <div class="search" >
+              <input type="text" class="search-textbox" placeholder="Search" >
+              <a class="ico-btn search-btn"><i class="material-icons ic_search"><img src="img/ico-btn search-btn.png" style="width: 24px; height: 18px;"></i></a>
+              <a class="ico-btn clear-btn"><i class="material-icons ic_clear"><img src="img/cerrar.png" style="width: 24px; height: 18px;"></i></a>
+            </div>
+            <div class="navbar-end">
+              <a style="text-transform: uppercase" href="view-list.html"> <img src="img/anadir-al-carrito.png" style="width: 20px; height: 20px;"> shopping cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-fixed-top navbar-inverse tabs paper-shadow-bottom-z-2">
+      <div class="container-fluid">
+        <ul class="navbar-body list-inline">
+          <li class="active"><a class="active" href="index.html">Home</a></li>
+          <li><a href="Productos.html">Product</a></li>
+          <li><a>Contact</a></li>
+          <li><a>Policies</a></li>
+        </ul>
+        <div class="tab-highlighter"></div>
+      </div>
+    </div>
+    <!--2 navbar for pushing 1 above after scrolling (Not Implemented yet.)-->
+  </navbar>
+
+<script>
+  
+/*Textbox Events*/
+$(document).on('focusin', 'navbar input.search-textbox', function(){
+    if($(this).val() <= 0){
+        var parent = $(this).closest('div.search');
+        parent.addClass('focused');
+    }
+});
+$(document).on('focusout', 'navbar input.search-textbox', function(){
+    if($(this).val() <= 0){
+        var parent = $(this).closest('div.search');
+        parent.removeClass('focused');
+    }
+});
+$(document).on('click', 'navbar .search', function(){
+    $(this).children('input.search-textbox').focus();
+});
+
+/*Text Key Events for Animating Icons i.e. .ico-btn*/
+$(document).on('keyup', 'navbar input.search-textbox', function(){
+    var parent = $(this).closest('div.search');
+    var phrase = $(this).val(),
+        phrase_length = phrase.length;
+
+    if(phrase_length >= 2){
+        parent.addClass('multi-char');
+        if(!parent.hasClass('not-null')){
+            parent.addClass('not-null');
+        }
+
+    }
+    else if(phrase_length == 1){
+        parent.addClass('not-null');
+        parent.removeClass('multi-char');
+    }
+    else if(phrase_length <= 0){
+        parent.removeClass('not-null');
+        parent.removeClass('multi-char');
+    }
+});
+
+/*Tab Highlighter Functionality*/
+$(document).on('click', 'navbar .tabs ul.navbar-body li a', function(){
+    var $this = $(this);
+    TabHighlighter.set($this);
+    $this.closest('li').siblings('.active').removeClass('active');
+    $this.closest('li').addClass('active');
+});
+var TabHighlighter = {
+    set: function($this){
+        $('.tab-highlighter').css({
+            'left':  $this.closest('li').offset().left,
+            'width': $this.closest('li').outerWidth()
+        });
+    },
+    refresh: function(){
+        var $this = $('.tabs ul.navbar-body li.active a');
+        $('.tab-highlighter').css({
+            'left':  $this.closest('li').offset().left,
+            'width': $this.closest('li').outerWidth()
+        });
+    }
+};
+$(window).resize(function(){
+    TabHighlighter.refresh();
+});
+$(document).ready(function(){
+	TabHighlighter.refresh();
+});
+</script>
+
+<div class="stark">
+  <img src="img/Sin título-2.png" alt="" class="imagen" style="width: 40%; height: 40%; margin-top: 50px; margin-left: 40px;">
+</div>
+
+<div class="cars" style="margin-left: 70%; margin-top: -27%;">
+  <img src="img/GT-R NISMO.png" alt="" style="width: 100%; height: 90%;">
+  <img src="img/SXT R.jpeg" alt="" style="width: 100%; height: 90%; margin-top: -5%; margin-left: -15%;">
+  <img src="img/SXT WHITE.jpeg" alt="" style="width: 100%; height: 90%; margin-top: 5%; margin-left: -15%;">
+</div>
+
+<!--Article of product-->
+
+
+
+<!--Cards in the PRODUCT ONE-->
+<div class="cont" style="margin-top: 10%;">
+  <div class="cupter">
+    <div class="front face">
+      <img src="img logo/dodge.jpeg" class="img-cards">
+      <h3 style="margin-top: 310px;">DODGER</h3>
+    </div>
+    <div class=" back face">
+      <h3 class="xmt">DODGER COMPANY</h3>
+  
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi perspiciatis culpa dolores omnis, odio quae exercitationem reprehenderit, vel placeat maiores error corporis dolore id.</p>
+      <a href="DODGE.HTML" class="link">Details</a>
+    </div>
+  </div>
+  </div>
+  
+  
+  <!--Cards in the PRODUCT TWO-->
+  <div class="" style="margin-left: 30%; margin-top: -38%;">
+    <div class="cupter">
+      <div class="front face">
+        <img src="img logo/TOYOTA.jpeg" class="img-cards">
+        <h3 style="margin-top: 310px;">TOYOTA</h3>
+      </div>
+      <div class=" back face">
+        <h3 class="xmt">TOYOTA COMPANY</h3>
+    
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi perspiciatis culpa dolores omnis, odio quae exercitationem reprehenderit, vel placeat maiores error corporis dolore id.</p>
+        <a href="TOYOTA.HTML" class="link">Details</a>
+      </div>
+    </div>
+    </div>
+  
+  
+  <!--Cards in the PRODUCTO THREE-->
+  
+  <div class="cont" style="margin-left: 60%; margin-top: -31%;">
+    <div class="cupter" >
+      <div class="front face">
+        <img src="img logo/nissan.jpeg" class="img-cards">
+        <h3 style="margin-top: 310px;">NISSAN</h3>
+      </div>
+      <div class=" back face">
+        <h3 class="xmt">NISSAN COMPANY</h3>
+    
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi perspiciatis culpa dolores omnis, odio quae exercitationem reprehenderit, vel placeat maiores error corporis dolore id.</p>
+        <a href="NISSAN.HTML" class="link">Details</a>
+      </div>
+    </div>
+
+
+    <a href="Productos.html" class="btn-btn" style="margin-top: 10%; margin-left: 65%;"> View more opcion</a>
+
+    </div>
+   
+  
+  <script>
+    // Añadir eventos a los botones de añadir al carrito
+    document.querySelectorAll('.btn_add').forEach(button => {
+        button.addEventListener('click', function() {
+            const productCard = button.closest('.card_p');
+            const productName = productCard.querySelector('.product-name').textContent;
+            const productPrice = parseFloat(productCard.querySelector('.price').getAttribute('data-price'));
+            addToCart(productName, productPrice);
+        });
+    });
+  
+    // Función para añadir el producto al carrito
+    function addToCart(productName, productPrice) {
+        let product = {
+            name: productName,
+            price: productPrice
+        };
+  
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+  
+        // Mostrar notificación
+        showNotification(`${productName} ha sido añadido al carrito.`);
+  
+        // Actualizar la lista de productos en el carrito
+        updateCartItems();
+  
+        // Actualizar el total del carrito
+        updateCartTotal();
+  
+        // Actualizar el contador de productos en el carrito
+        updateCartCount();
+    }
+  
+    // Función para mostrar notificación
+    function showNotification(message) {
+        const notification = document.getElementById('cart-notification');
+        notification.textContent = message;
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.classList.add('hide');
+            setTimeout(() => {
+                notification.style.display = 'none';
+                notification.classList.remove('hide');
+            }, 500); // Espera que termine la transición
+        }, 2000); // Muestra la notificación durante 2 segundos
+    }
+  
+    // Función para actualizar la lista de productos en el carrito
+    function updateCartItems() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        if (cartItemsContainer) {
+            cartItemsContainer.innerHTML = ''; // Limpiar la lista actual
+  
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+            cart.forEach(product => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${product.name} - $${product.price.toFixed(2)}`;
+                cartItemsContainer.appendChild(listItem);
+            });
+        }
+    }
+  
+    // Función para actualizar el total del carrito
+    function updateCartTotal() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let total = cart.reduce((sum, product) => sum + product.price, 0);
+        document.querySelector('.TOTAL').textContent = `$${total.toFixed(2)}`;
+    }
+  
+    // Función para actualizar el contador de productos en el carrito
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cart-count').textContent = cart.length;
+    }
+  
+    // Al cargar la página, actualizar el total del carrito, los items y el contador visualmente
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartTotal();
+        updateCartItems();
+        updateCartCount();
+    });
+  </script>
+<div>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2024 STARKCAR. Todos los derechos reservados.</p>
+      <ul class="social-icons">
+        <li><a href="#"><img src="img/facebook.png" alt="Facebook"></a></li>
+        <li><a href="#"><img src="img/twitter.png" alt="Twitter"></a></li>
+        <li><a href="#"><img src="img/instagram.png" alt="Instagram"></a></li>
+        <li><a href="#"><img src="img/whatsapp.png" alt="What´sApp" style="margin-top: -5px; margin-left: -10px; height: 35px; width: 35px;"></a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/index.css">
+    <link rel="stylesheet" href="Css/CARD PRODUCT.CSS">
+    <link rel="stylesheet" href="Css/details product.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>LYNCH INDUSTRY</title>
+</head>
+<body>
+      <!--Navbar-->
+      <navbar>
+        <div class="navbar nav navbar-fixed-top navbar-inverse">
+          <div class="container-fluid">
+            <div class="v-flex">
+              <div class="navbar-body">
+                <div class="navbar-start">
+                  <div class="hamburger-menu">
+                    <div class="ic_menu">
+      
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                              </div>
+                  </div>
+                </div>
+                <div class="search">
+                  <input type="text" class="search-textbox" placeholder="Search">
+                  
+                <a class="ico-btn search-btn"><i class="material-icons ic_search">&#xE8B6;</i></a>
+                  <a class="ico-btn clear-btn"><i class="material-icons ic_clear">&#xE14C;</i></a>
+                </div>
+      
+                <div class="navbar-end">
+                  <a style="text-transform: uppercase">Login</a>
+      
+                </div>
+              </div>
+            </div>
+            <img class="logo" src="img/LOGO.png" style="width: 110px; height: 90px; margin-left: 15px; margin-top: -60px;">
+      
+          </div>
+        </div>
+      
+        <div class="navbar navbar-fixed-top navbar-inverse tabs paper-shadow-bottom-z-2">
+          <div class="container-fluid">
+            <ul class="navbar-body list-inline">
+              <li class="active"><a href="index.html" class="active">Home</a></li>
+              <li><a href="Productos.html">Product</a></li>
+              <li><a href="">Contac</a></li>
+              <li><a href="">Policies</a></li>
+            </ul>
+            <div class="tab-highlighter"></div>
+          </div>
+        </div>
+        <!--2 navbar for pushing 1 above after scrolling (Not Implemented yet.)-->
+      </navbar>
+
+
+<script>
+
+/*Textbox Events*/
+$(document).on('focusin', 'navbar input.search-textbox', function(){
+    if($(this).val() <= 0){
+        var parent = $(this).closest('div.search');
+        parent.addClass('focused');
+    }
+});
+$(document).on('focusout', 'navbar input.search-textbox', function(){
+    if($(this).val() <= 0){
+        var parent = $(this).closest('div.search');
+        parent.removeClass('focused');
+    }
+});
+$(document).on('click', 'navbar .search', function(){
+    $(this).children('input.search-textbox').focus();
+});
+
+/*Text Key Events for Animating Icons i.e. .ico-btn*/
+$(document).on('keyup', 'navbar input.search-textbox', function(){
+    var parent = $(this).closest('div.search');
+    var phrase = $(this).val(),
+        phrase_length = phrase.length;
+
+    if(phrase_length >= 2){
+        parent.addClass('multi-char');
+        if(!parent.hasClass('not-null')){
+            parent.addClass('not-null');
+        }
+
+    }
+    else if(phrase_length == 1){
+        parent.addClass('not-null');
+        parent.removeClass('multi-char');
+    }
+    else if(phrase_length <= 0){
+        parent.removeClass('not-null');
+        parent.removeClass('multi-char');
+    }
+});
+
+/*Tab Highlighter Functionality*/
+$(document).on('click', 'navbar .tabs ul.navbar-body li a', function(){
+    var $this = $(this);
+    TabHighlighter.set($this);
+    $this.closest('li').siblings('.active').removeClass('active');
+    $this.closest('li').addClass('active');
+});
+var TabHighlighter = {
+    set: function($this){
+        $('.tab-highlighter').css({
+            'left':  $this.closest('li').offset().left,
+            'width': $this.closest('li').outerWidth()
+        });
+    },
+    refresh: function(){
+        var $this = $('.tabs ul.navbar-body li.active a');
+        $('.tab-highlighter').css({
+            'left':  $this.closest('li').offset().left,
+            'width': $this.closest('li').outerWidth()
+        });
+    }
+};
+$(window).resize(function(){
+    TabHighlighter.refresh();
+});
+$(document).ready(function(){
+	TabHighlighter.refresh();
+});
+
+
+
+</script>
+
+      
+<!--ASIDE CARTS OF BUY-->
+
+<aside class="carts" style="margin-top: 40%; ">
+    <div class="carts__container">
+    <a id="carts_view" class="viewer" href="DODGE.HTML" style="color: aliceblue;">View list</a>
+    <H4 class="TOTAL" style="margin-bottom: 80%;">$0.00</H4>
+    
+    <div class="finish">
+      <a href="#" class="finish__btn" style="color: aliceblue;">Finish</a>
+    </div>
+  </div>
+  </aside>
+
+<!--Cards date of product-->
+<div class="row-name">
+  <div class="column-name">
+    <div class="card-name">
+      <h3><b>DODGE CHALLENGER R-T SCAT PACK W</b></h3>
+      <h3 style="color: red;">$72,000.00</h3>
+      <div class="btn_add_toCard"> <p><button class="btn_add" id="add_product">Add to Cart</button></p></div>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="mySlides">
+      <img src="autos/DODGER/R-T SCAT PACK W/R.jpeg" class="imgr" style="width:50%; margin-top: -50%; margin-left: 10%;">
+    </div>
+  
+    <div class="mySlides">
+      <img class="imgr"  src="autos/DODGER/" style="width:50%; margin-top: -50%; margin-left: 10%;">
+    </div>
+  
+    <div class="mySlides">
+      <img class="imgr" src="autos/DODGER/" style="width:50%; margin-top: -50%; margin-left: 10%;">
+    </div>
+      
+    <div class="mySlides">
+      <img class="imgr"  src="autos/DODGER" style="width:50%; margin-top: -50%; margin-left: 10%;">
+    </div>
+  
+    <div class="mySlides">
+      <img  class="imgr" src="autos/DODGER" style="width:50%; margin-top: -50%; margin-left: 10%;">
+    </div>
+      
+    <div class="mySlides">
+      <img class="imgr" src="autos/DODGER/" style="width:50%; margin-top: -50%; margin-left: 10%;">
+    </div>
+      
+ 
+  
+    
+  
+    <!--<div class="scrolling-buttons-container">
+        <span id="scrolling-button-left">👈</span>
+        <span id="scrolling-button-right">👉</span>
+      </div>-->
+
+    
+  
+</div>
+ 
+<div class="row-scrolling">
+    <div class="scrolling">
+      <img class="demo cursor" class="imgr"  src="autos/DODGER/R-T SCAT PACK W/R.jpeg" style="width:100%" onclick="currentSlide(1)" >
+    </div>
+    <div class="scrolling">
+   <img class="demo cursor" src="autos/DODGER" style="width:100%" onclick="currentSlide(2)" >
+    </div>
+    <div class="scrolling">
+      <img class="demo cursor" src="autos/DODGER" style="width:100%" onclick="currentSlide(3)">
+    </div>
+    <div class="scrolling">
+      <img class="demo cursor" src="autos/DODGER" style="width:100%" onclick="currentSlide(4)">
+    </div>
+    <div class="scrolling">
+      <img class="demo cursor" src="autos/DODGER" style="width:100%" onclick="currentSlide(5)">
+    </div>    
+    <div class="scrolling">
+      <img class="demo cursor" src="autos/DODGER" style="width:100%" onclick="currentSlide(6)">
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  
+  <div class="row-details">
+  <div class="column-details">
+    <div class="card-details">
+     <h3 style="text-align: center; "><b> Details of car</b></h3>
+     <details>
+     <summary style="cursor: pointer;"> <h4><b>Motor y rendimiento</b></h4></summary>
+      <p>
+        <b>Motor:</b> 6.2 litros V8 sobrealimentado<br><br>
+        <b> Potencia:</b> 807 caballos de fuerza<br><br>
+        <b> Torque:</b> 707 lb-pie<br><br>
+        <b> Transmisión:</b> Automática de 8 velocidades<br><br>
+        <b> Velocidad Máxima:</b> Aproximadamente 203 mph (327 km/h)<br><br>
+        <b> Aceleración (0-60 mph):</b> Cerca de 3.4 segundos<br><br></p>
+      </details>
+
+    <details>
+      <summary style="cursor: pointer;"> <h4><b>Dimensión y peso</b></h4></summary>
+       <p>
+         <b>Longitud:</b> 197.9 pulgadas (5028 mm)<br><br>
+         <b>Ancho:</b> 75.7 pulgadas (1923 mm)<br><br>
+         <b> Altura:</b> 57.5 pulgadas (1461 mm)<br><br>
+         <b> Distancia entre Ejes:</b> 116.2 pulgadas (2952 mm)<br><br>
+         <b>Peso en Vacío:</b> Aproximadamente 4440 libras (2014 kg)</p>
+        </details>
+
+        <details>
+          <summary style="cursor: pointer;"> <h4><b>Suspensión y Frenos</b></h4></summary>
+           <p>
+            <b>Suspensión Delantera:</b> Independiente con amortiguadores Bilstein<br><br>
+              <b>Suspensión Trasera:</b> Eje trasero con amortiguadores Bilstein<br><br>
+                <b>Frenos:</b> Discos ventilados en las cuatro ruedas con pinzas Brembo de seis pistones en el frente y cuatro pistones en la parte trasera
+            </details>
+
+            <details>
+              <summary style="cursor: pointer;"> <h4><b>Ruedas y Neumaticos</b></h4></summary>
+               <p>
+                
+                <b>Ruedas:</b> Llantas de 20 pulgadas<br><br>
+                <b>Neumáticos:</b> Pirelli P Zero, con la opción de neumáticos radiales para drag</p>
+                </details>
+        </div>
+ 
+   
+      </div>
+
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("demo");
+      let captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+    </script>
+
+
+<script>
+const rightBtn = document.querySelector("#scrolling-button-right");
+const leftBtn = document.querySelector("#scrolling-button-left");
+
+const content = document.querySelector(".scrolling-container");
+
+rightBtn.addEventListener("click", () => {
+  content.scrollLeft += 800;
+});
+
+leftBtn.addEventListener("click", () => {
+  content.scrollLeft -= 800;
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

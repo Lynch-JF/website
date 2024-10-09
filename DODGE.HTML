@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/index.css">
+    <link rel="stylesheet" href="Css/CARD PRODUCT.CSS">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>LYNCH INDUSTRY</title>
+    <style>
+        #cart-notification {
+            display: none;
+            position: fixed;
+            top: 20px;
+            margin-top: 8%;
+            right: 20px;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .hide {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+  
+  <navbar>
+    <div class="navbar nav navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="v-flex">
+          <div class="navbar-body">
+            <div class="navbar-start">
+              <div class="hamburger-menu">
+                <div class="ic_menu">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </div>
+              </div>
+              <img class="logo" src="img logo/Sin título-2.png" style=" margin-left: -55%; width: 90px; height: 70px;">
+            </div>
+            <div class="search" >
+              <input type="text" class="search-textbox" placeholder="Search" >
+              <a class="ico-btn search-btn"><i class="material-icons ic_search"><img src="img/ico-btn search-btn.png" style="width: 24px; height: 18px;"></i></a>
+              <a class="ico-btn clear-btn"><i class="material-icons ic_clear"><img src="img/cerrar.png" style="width: 24px; height: 18px;"></i></a>
+            </div>
+            <div class="navbar-end">
+              <a style="text-transform: uppercase" href="view-list.html"> <img src="img/anadir-al-carrito.png" style="width: 20px; height: 20px;"> shopping cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-fixed-top navbar-inverse tabs paper-shadow-bottom-z-2">
+      <div class="container-fluid">
+        <ul class="navbar-body list-inline">
+          <li class="active"><a class="active" href="index.html">Home</a></li>
+          <li><a href="Productos.html">Product</a></li>
+          <li><a>Contact</a></li>
+          <li><a>Policies</a></li>
+        </ul>
+        <div class="tab-highlighter"></div>
+      </div>
+    </div>
+    <!--2 navbar for pushing 1 above after scrolling (Not Implemented yet.)-->
+  </navbar>
+
+<script>
+
+/*Textbox Events*/
+$(document).on('focusin', 'navbar input.search-textbox', function(){
+    if($(this).val() <= 0){
+        var parent = $(this).closest('div.search');
+        parent.addClass('focused');
+    }
+});
+$(document).on('focusout', 'navbar input.search-textbox', function(){
+    if($(this).val() <= 0){
+        var parent = $(this).closest('div.search');
+        parent.removeClass('focused');
+    }
+});
+$(document).on('click', 'navbar .search', function(){
+    $(this).children('input.search-textbox').focus();
+});
+
+/*Text Key Events for Animating Icons i.e. .ico-btn*/
+$(document).on('keyup', 'navbar input.search-textbox', function(){
+    var parent = $(this).closest('div.search');
+    var phrase = $(this).val(),
+        phrase_length = phrase.length;
+
+    if(phrase_length >= 2){
+        parent.addClass('multi-char');
+        if(!parent.hasClass('not-null')){
+            parent.addClass('not-null');
+        }
+
+    }
+    else if(phrase_length == 1){
+        parent.addClass('not-null');
+        parent.removeClass('multi-char');
+    }
+    else if(phrase_length <= 0){
+        parent.removeClass('not-null');
+        parent.removeClass('multi-char');
+    }
+});
+
+/*Tab Highlighter Functionality*/
+$(document).on('click', 'navbar .tabs ul.navbar-body li a', function(){
+    var $this = $(this);
+    TabHighlighter.set($this);
+    $this.closest('li').siblings('.active').removeClass('active');
+    $this.closest('li').addClass('active');
+});
+var TabHighlighter = {
+    set: function($this){
+        $('.tab-highlighter').css({
+            'left':  $this.closest('li').offset().left,
+            'width': $this.closest('li').outerWidth()
+        });
+    },
+    refresh: function(){
+        var $this = $('.tabs ul.navbar-body li.active a');
+        $('.tab-highlighter').css({
+            'left':  $this.closest('li').offset().left,
+            'width': $this.closest('li').outerWidth()
+        });
+    }
+};
+$(window).resize(function(){
+    TabHighlighter.refresh();
+});
+$(document).ready(function(){
+	TabHighlighter.refresh();
+});
+
+
+
+</script>
+
+  <!-- Cart Section -->
+  <aside class="carts" style="margin-top: 40%;">
+    <div class="carts__container">
+        <a id="carts_view" class="viewer" href="" style="color: aliceblue;">View list</a>
+        <h4 class="TOTAL" style="margin-bottom: 20%;">$0.00</h4>
+        <p>Items in Cart: <span id="cart-count">0</span></p> <!-- Contador de productos -->
+        <div class="finish">
+            <a href="#" class="finish__btn" style="color: aliceblue;">Finish</a>
+        </div>
+    </div>
+</aside>
+
+
+      <!--CARST OF BUY-->
+
+<!--cards of buy one-->
+      <div class="card_p">
+        <img src="img logo/SRT HELLCAT JAILBREAK.jpeg" alt="Denim Jeans" style="width:130%; margin-left: -15%;">
+        <b><h3 class="product-name">SRT HELLCAT JAILBREAK</h3></b>
+        <b><p class="price" data-price="30000">$30,000.00</p></b>
+        <div class="new_btn_add_toCard" style=" margin-left: 5px;"> <p><button style="border-radius: 10%;" id="new_btn" class="btn_add" ><span style="border-radius: 25%;"> Add to Cart</span></button></p></div>
+    
+        <!--details product -->
+    <div class="btn_container_details" style=" margin-top: -14.6%;">   
+       <a href="SRT HELLCAT JAILBREAK.HTML"> <button href="#" class="btn_details" value="">Details Product</button></a>
+    </div>
+    <!--finish-->
+    <div id="cart-notification">Product added to cart!</div>
+
+    </div>
+      
+<!--cards of buy two-->
+<div class="card_p" style="margin-left: 38.8%; margin-top: -24.6%;">
+    <img src="autos/DODGER/R-T SCAT PACK W/R.jpeg" alt="Denim Jeans" style="width:130%; margin-left: -15%;">
+   <h3 class="product-name">R-T SCAT PACK W</h3>
+    <p class="price" data-price="72000.00">$72,000.00</p>
+    <div class="new_btn_add_toCard"> <p><button id="new_btn" class="btn_add" style="margin-left: 5px; border-radius: 10%;"><span style="border-radius: 10%;">Add to Cart</span></button></p></div>
+
+
+    <!--details product -->
+    <div class="btn_container_details" style="margin-top: -14.6%;">   
+        <a href="R-T SCAT PACK W.html"><button  class="btn_details" value="">Details Product</button></a>
+    </div>
+    <!--finish-->
+    <div id="cart-notification">Product added to cart!</div>
+
+</div>
+
+  <!--cards of buy theree-->
+<div class="card_p" style="margin-left: 67.8%; margin-top: -24.6%;">
+    <img src="autos/DODGER/R-T SCAT PACK/R-T SCAT PACK R.jpeg" alt="Denim Jeans" style="width:130%; margin-left: -15%;">
+    <h3 class="product-name">R-T SCAT PACK</h3>
+    <p class="price" data-price="50000.00">$50,000.00</p>
+    <div class="new_btn_add_toCard"> <p><button id="new_btn" class="btn_add" style="margin-left: 5px; border-radius: 10%;" ><span> Add to Cart</span></button></p></div>
+
+    <!--details product-->
+    <div class="btn_container_details" style="margin-top: -14.6%;">   
+      <a href="R-T SCAT PACK.HTML">  <button href="#" class="btn_details" value="">Details Product</button></a>
+    </div>
+    <!--finish-->
+    <div id="cart-notification">Product added to cart!</div>
+
+</div>
+
+  <!--cards of buy four-->
+<div class="card_p" style="margin-left: 10%; margin-top: 3%;">
+    <img src="autos/DODGER/RT/R-T B.jpeg" alt="Denim Jeans" style="width:130%; margin-left: -15%;">
+    <h3 class="product-name">GT</h3>
+    <p class="price" data-price="74000">$74,000</p>
+    <div class="new_btn_add_toCard"> <p><button id="new_btn" class="btn_add" style="margin-left: 5px; border-radius: 10%;" ><span> Add to Cart</span></button></p></div>
+<!--details product-->
+<div class="btn_container_details" style="margin-top: -14.6%;">   
+   <a href="GT DODGE.HTML"> <button href="#" class="btn_details" value="">Details Product</button></a>
+</div>
+<!--finish--> 
+<div id="cart-notification">Product added to cart!</div>
+
+</div>
+
+  <!--cards of buy five-->
+  <div class="card_p" style="margin-left: 38.8%; margin-top: -24.3%;">
+    <img src="autos/DODGER/GT/GT W.jpeg" alt="Denim Jeans" style="width:130%; margin-left: -15%;">
+    <h3 class="product-name">HELLCAT SXT</h3>
+    <p class="price" data-price="74000">$74,000</p>
+    <div class="new_btn_add_toCard"> <p><button id="new_btn" class="btn_add" style="margin-left: 5px; border-radius: 10%;"><span> Add to Cart</span></button></p></div>
+    
+<!--details product-->
+<div class="btn_container_details" style="margin-top: -14.6%;">   
+  <a href="SXT.HTML">  <button href="#" class="btn_details" value="">Details Product</button></a>
+</div>
+<!--finish-->
+<div id="cart-notification">Product added to cart!</div>
+
+  </div>
+
+<!--cards of buy sixe-->
+<div class="card_p" style="margin-left: 68%; margin-top: -24.5%;">
+    <img src="autos/DODGER/SXT/SXT G1.jpeg" alt="Denim Jeans" style="width:130%; margin-left: -15%;">
+    <h3 class="product-name">RT</h3>
+    <p class="price" data-price="740000">$74,000</p>
+    <div class="new_btn_add_toCard"> <p><button id="new_btn" class="btn_add" style="margin-left: 5px; border-radius: 10%;"><span style="margin-left: 5px; border-radius: 10%;"> Add to Cart</span></button></p></div>
+   
+ 
+    <!--details product-->
+    <div class="btn_container_details" style="margin-top: -14.6%;">   
+      <a href="RT.HTML">  <button href="#" class="btn_details" value="">Details Product</button></a>
+</div>
+<!--finish-->
+<div id="cart-notification">Product added to cart!</div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+ <!-- JavaScript -->
+ <script>
+  // Añadir eventos a los botones de añadir al carrito
+  document.querySelectorAll('.btn_add').forEach(button => {
+      button.addEventListener('click', function() {
+          const productCard = button.closest('.card_p');
+          const productName = productCard.querySelector('.product-name').textContent;
+          const productPrice = parseFloat(productCard.querySelector('.price').getAttribute('data-price'));
+          addToCart(productName, productPrice);
+      });
+  });
+
+  // Función para añadir el producto al carrito
+  function addToCart(productName, productPrice) {
+      let product = {
+          name: productName,
+          price: productPrice
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Mostrar notificación
+      showNotification(`${productName} ha sido añadido al carrito.`);
+
+      // Actualizar la lista de productos en el carrito
+      updateCartItems();
+
+      // Actualizar el total del carrito
+      updateCartTotal();
+
+      // Actualizar el contador de productos en el carrito
+      updateCartCount();
+  }
+
+  // Función para mostrar notificación
+  function showNotification(message) {
+      const notification = document.getElementById('cart-notification');
+      notification.textContent = message;
+      notification.style.display = 'block';
+      setTimeout(() => {
+          notification.classList.add('hide');
+          setTimeout(() => {
+              notification.style.display = 'none';
+              notification.classList.remove('hide');
+          }, 500); // Espera que termine la transición
+      }, 2000); // Muestra la notificación durante 2 segundos
+  }
+
+  // Función para actualizar la lista de productos en el carrito
+  function updateCartItems() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      if (cartItemsContainer) {
+          cartItemsContainer.innerHTML = ''; // Limpiar la lista actual
+
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+          cart.forEach(product => {
+              const listItem = document.createElement('li');
+              listItem.textContent = `${product.name} - $${product.price.toFixed(2)}`;
+              cartItemsContainer.appendChild(listItem);
+          });
+      }
+  }
+
+  // Función para actualizar el total del carrito
+  function updateCartTotal() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let total = cart.reduce((sum, product) => sum + product.price, 0);
+      document.querySelector('.TOTAL').textContent = `$${total.toFixed(2)}`;
+  }
+
+  // Función para actualizar el contador de productos en el carrito
+  function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+  }
+
+  // Al cargar la página, actualizar el total del carrito, los items y el contador visualmente
+  document.addEventListener('DOMContentLoaded', () => {
+      updateCartTotal();
+      updateCartItems();
+      updateCartCount();
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2024 STARKCAR. Todos los derechos reservados.</p>
+      <ul class="social-icons">
+        <li><a href="#"><img src="img/facebook.png" alt="Facebook"></a></li>
+        <li><a href="#"><img src="img/twitter.png" alt="Twitter"></a></li>
+        <li><a href="#"><img src="img/instagram.png" alt="Instagram"></a></li>
+        <li><a href="#"><img src="img/whatsapp.png" alt="What´sApp" style="margin-top: -5px; margin-left: -10px; height: 35px; width: 35px;"></a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+
+
+      
+</body>
+</html>

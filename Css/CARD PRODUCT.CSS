@@ -1,0 +1,162 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.card_p {
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 3 );
+    max-width: 300px;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: -36%;
+    margin-left: 10%;
+    
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card_p .btn_add {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    font-size: 18px;
+    margin-right: 50%;
+
+  }
+  
+  .card_p .btn_add:hover {
+    opacity: 0.7;
+  }
+
+  .card_p:hover{
+    opacity: 0.9;
+  }
+
+  footer{
+    margin-top: 5%;
+  }
+
+.btn_details{
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 4px;
+    height: 20%;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: -40%;
+    margin-left: 50%;
+    color: aliceblue;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+position: relative;  
+border-radius: 10px;
+  }
+
+
+
+
+
+  .btn_details:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+
+
+.btn_details:after {
+  content: "";
+  background: red;
+  display: block;
+  position: absolute;
+  padding-top: 70%;
+  padding-left: 120%;
+  margin-left: -5px!important;
+  margin-top: -35%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+
+
+
+#new_btn .new_btn_add_toCard {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 100px;
+    height: 50px;
+margin-left: -20%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-bottom: -10%;
+    
+  }
+  
+  #new_btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    border-radius: 10px;
+  }
+  
+  #new_btn span:after {
+    content: '\00BB';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.1s;
+  }
+  
+  #new_btn:hover span {
+    padding-right: 25px;
+  }
+  
+  #new_btn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  #new_btn {
+    padding: 13px 15px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #000000;
+    border: none;
+margin-bottom: 1%;
+    box-shadow: 0 3px #999;
+  }
+  
+  #new_btn:hover {background-color: #0f0f10}
+  
+  #new_btn:active {
+    background-color: #ff1111;
+    box-shadow: 0 5px #000000;
+    transform: translateY(2px);
+  }
+
+
+ 
+ 

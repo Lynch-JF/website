@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>JC INDUSTRY</title></head>
+<body>
+
+  
+  <navbar>
+    <div class="navbar nav navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="v-flex">
+          <div class="navbar-body">
+            <div class="navbar-start">
+              <div class="hamburger-menu">
+                <div class="ic_menu">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </div>
+              </div>
+              <img class="logo" src="img logo/Sin título-2.png" style=" margin-left: -55%; width: 90px; height: 70px;">
+            </div>
+            <div class="search" >
+              <input type="text" class="search-textbox" placeholder="Search" >
+              <a class="ico-btn search-btn"><i class="material-icons ic_search"><img src="img/ico-btn search-btn.png" style="width: 24px; height: 18px;"></i></a>
+              <a class="ico-btn clear-btn"><i class="material-icons ic_clear"><img src="img/cerrar.png" style="width: 24px; height: 18px;"></i></a>
+            </div>
+            <div class="navbar-end">
+              <a style="text-transform: uppercase" href="view-list.html"> <img src="img/anadir-al-carrito.png" style="width: 20px; height: 20px;"> shopping cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-fixed-top navbar-inverse tabs paper-shadow-bottom-z-2">
+      <div class="container-fluid">
+        <ul class="navbar-body list-inline">
+          <li class="active"><a class="active" href="index.html">Home</a></li>
+          <li><a href="Productos.html">Product</a></li>
+          <li><a>Contact</a></li>
+          <li><a>Policies</a></li>
+        </ul>
+        <div class="tab-highlighter"></div>
+      </div>
+    </div>
+    <!--2 navbar for pushing 1 above after scrolling (Not Implemented yet.)-->
+  </navbar>
+
+
+<script>
+
+/*Textbox Events*/
+$(document).on('focusin', 'navbar input.search-textbox', function(){
+    if($(this).val() <= 0){
+        var parent = $(this).closest('div.search');
+        parent.addClass('focused');
+    }
+});
+$(document).on('focusout', 'navbar input.search-textbox', function(){
+    if($(this).val() <= 0){
+        var parent = $(this).closest('div.search');
+        parent.removeClass('focused');
+    }
+});
+$(document).on('click', 'navbar .search', function(){
+    $(this).children('input.search-textbox').focus();
+});
+
+/*Text Key Events for Animating Icons i.e. .ico-btn*/
+$(document).on('keyup', 'navbar input.search-textbox', function(){
+    var parent = $(this).closest('div.search');
+    var phrase = $(this).val(),
+        phrase_length = phrase.length;
+
+    if(phrase_length >= 2){
+        parent.addClass('multi-char');
+        if(!parent.hasClass('not-null')){
+            parent.addClass('not-null');
+        }
+
+    }
+    else if(phrase_length == 1){
+        parent.addClass('not-null');
+        parent.removeClass('multi-char');
+    }
+    else if(phrase_length <= 0){
+        parent.removeClass('not-null');
+        parent.removeClass('multi-char');
+    }
+});
+
+/*Tab Highlighter Functionality*/
+$(document).on('click', 'navbar .tabs ul.navbar-body li a', function(){
+    var $this = $(this);
+    TabHighlighter.set($this);
+    $this.closest('li').siblings('.active').removeClass('active');
+    $this.closest('li').addClass('active');
+});
+var TabHighlighter = {
+    set: function($this){
+        $('.tab-highlighter').css({
+            'left':  $this.closest('li').offset().left,
+            'width': $this.closest('li').outerWidth()
+        });
+    },
+    refresh: function(){
+        var $this = $('.tabs ul.navbar-body li.active a');
+        $('.tab-highlighter').css({
+            'left':  $this.closest('li').offset().left,
+            'width': $this.closest('li').outerWidth()
+        });
+    }
+};
+$(window).resize(function(){
+    TabHighlighter.refresh();
+});
+$(document).ready(function(){
+	TabHighlighter.refresh();
+});
+
+
+
+</script>
+
+
+
+      <!--Cards-->
+<div>
+
+      <!--Cards in the PRODUCT ONE-->
+<div class="cont" style="margin-top: 5.9%;">
+    <div class="cupter">
+      <div class="front face">
+        <img src="img logo/dodge.jpeg" class="img-cards">
+        <h3 style="margin-top: 310px;">DODGER</h3>
+      </div>
+      <div class=" back face">
+        <h3 class="xmt">DODGER COMPANY</h3>
+    
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi perspiciatis culpa dolores omnis, odio quae exercitationem reprehenderit, vel placeat maiores error corporis dolore id.</p>
+        <a href="DODGE.HTML" class="link">Details</a>
+      </div>
+    </div>
+    </div>
+    
+    
+    <!--Cards in the PRODUCT TWO-->
+    <div class="cont" style="margin-left: 28.7%; margin-top: -37.5%;">
+      <div class="cupter">
+        <div class="front face">
+          <img src="img logo/TOYOTA.jpeg" class="img-cards">
+          <h3 style="margin-top: 310px;">TOYOTA</h3>
+        </div>
+        <div class=" back face">
+          <h3 class="xmt">TOYOTA COMPANY</h3>
+      
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi perspiciatis culpa dolores omnis, odio quae exercitationem reprehenderit, vel placeat maiores error corporis dolore id.</p>
+          <a href="TOYOTA.HTML" class="link">Details</a>
+        </div>
+      </div>
+      </div>
+    
+    
+    <!--Cards in the PRODUCTO THREE-->
+    <div class="cont" style="margin-left: 57.7%; margin-top: -37.5%;">
+      <div class="cupter">
+        <div class="front face">
+          <img src="img logo/nissan.jpeg" class="img-cards">
+          <h3 style="margin-top: 310px;">NISSAN</h3>
+        </div>
+        <div class=" back face">
+          <h3 class="xmt">NISSAN COMPANY</h3>
+      
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi perspiciatis culpa dolores omnis, odio quae exercitationem reprehenderit, vel placeat maiores error corporis dolore id.</p>
+          <a href="NISSAN.HTML" class="link">Details</a>
+        </div>
+      </div>
+
+<!--CARDS IN THE PRODUCT FOUR-->
+<div class="cont" style="margin-left: -137%; margin-top: 6.5%;">
+    <div class="cupter">
+      <div class="front face">
+        <img src="img logo/PORCHE.jpeg" class="img-cards">
+        <h3 style="margin-top: 310px;">PORCHE</h3>
+      </div>
+      <div class=" back face">
+        <h3 class="xmt">PORCHE COMPANY</h3>
+    
+        <p>BONITO,ELEGANTE,HERMOSO Y VELOZ ESE SOY YO PORCHE.</p>
+        <a href="PORCHE.html" class="link">Details</a>
+      </div>
+    </div>
+
+      </div>
+
+
+<!--CARDS IN THE PRODUCT FIVE-->
+<div class="cont" style="margin-left: -68%; margin-top: -77%;">
+    <div class="cupter">
+      <div class="front face">
+        <img src="img logo/Lamborghini.jpeg" class="img-cards">
+        <h3 style="margin-top: 310px;">LAMBORGHINI</h3>
+      </div>
+      <div class=" back face">
+        <h3 class="xmt">LAMBORGHINI COMPANY</h3>
+    
+        <p>FERRARI DICE COMPRA UN FERRARI PARA SER ALGUIEN, MIENTRAS QUE YO DIGO COMPRAS UN LAMBORGHINI CUANDO ERES ALGUIEN</p>
+        <a href="LAMBORGHINI.html" class="link">Details</a>
+      </div>
+    </div>
+
+      </div>
+
+
+<!--CARDS IN THE PRODUCT SIXE-->
+<div class="cont" style="margin-left: 1%; margin-top: -76.3%;">
+    <div class="cupter">
+      <div class="front face">
+        <img src="img logo/Ferrari Cars.jpeg" class="img-cards">
+        <h3 style="margin-top: 310px;">FERRARI</h3>
+      </div>
+      <div class=" back face">
+        <h3 class="xmt">FERRARI COMPANY</h3>
+    
+        <p>COMPRA UN FERRARI PARA SER ALGUIEN, NO TE QUEDES SIENDO NADIE</p>
+        <a href="FERRARI.HTML" class="link">Details</a>
+      </div>
+    </div>
+
+      </div>
+
+<!--CARDS IN THE PRODUCT SEVEN-->
+<div class="cont" style="margin-left: -137%; margin-top: 6.3%;">
+    <div class="cupter">
+      <div class="front face">
+        <img src="img logo/ROLL ROCE.jpeg" class="img-cards">
+        <h3 style="margin-top: 310px;">ROLL ROCE</h3>
+      </div>
+      <div class=" back face">
+        <h3 class="xmt">ROLL ROCE COMPANY</h3>
+    
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi perspiciatis culpa dolores omnis, odio quae exercitationem reprehenderit, vel placeat maiores error corporis dolore id.</p>
+        <a href="ROLL ROCE.HTML" class="link">Details</a>
+      </div>
+    </div>
+
+      </div>
+
+      <!--CARDS IN THE PRODUCT EIGHT-->
+<div class="cont" style="margin-left: -68%; margin-top: -76.3%;">
+    <div class="cupter">
+      <div class="front face">
+        <img src="img logo/Corvette Logo.jpeg" class="img-cards">
+        <h3 style="margin-top: 310px;">CHEVROLET</h3>
+      </div>
+      <div class=" back face">
+        <h3 class="xmt">CHEVROLET COMPANY</h3>
+    
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi perspiciatis culpa dolores omnis, odio quae exercitationem reprehenderit, vel placeat maiores error corporis dolore id.</p>
+        <a href="CHEVROLET.HTML" class="link">Details</a>
+      </div>
+    </div>
+
+      </div>
+       <!--CARDS IN THE PRODUCT NINE-->
+<div class="cont" style="margin-left: 1%; margin-top: -76.3%;">
+    <div class="cupter">
+      <div class="front face">
+        <img src="img logo/BMW.jpeg" class="img-cards">
+        <h3 style="margin-top: 310px;">BMW</h3>
+      </div>
+      <div class=" back face">
+        <h3 class="xmt">BMW COMPANY</h3>
+    
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti commodi perspiciatis culpa dolores omnis, odio quae exercitationem reprehenderit, vel placeat maiores error corporis dolore id.</p>
+        <a href="BMW.HTML" class="link">Details</a>
+      </div>
+    </div>
+
+      </div>
+
+    </div>
+
+    <div>
+      <footer class="footer">
+        <div class="footer-content">
+          <p>© 2024 STARKCAR. Todos los derechos reservados.</p>
+          <ul class="social-icons">
+            <li><a href="#"><img src="img/facebook.png" alt="Facebook"></a></li>
+            <li><a href="#"><img src="img/twitter.png" alt="Twitter"></a></li>
+            <li><a href="#"><img src="img/instagram.png" alt="Instagram"></a></li>
+            <li><a href="#"><img src="img/whatsapp.png" alt="What´sApp" style="margin-top: -5px; margin-left: -10px; height: 35px; width: 35px;"></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+</body>
+</html>
